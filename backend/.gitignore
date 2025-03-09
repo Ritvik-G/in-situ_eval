@@ -26,3 +26,5 @@ htmlcov/
 # Tester files
 app_backup_latest.py
 app_backup.py
+
+config.json
