@@ -1,25 +1,7 @@
 {
-    "MODEL_CONFIG": {
-        "type": "groq",
-        "url": "https://api.groq.com/openai/v1/chat/completions",
-        "model": "llama3-8b-8192",
-        "embedding_model": "all-MiniLM-L6-v2",
-        "api_key": "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",
-        "temperature": 0.5,
-        "max_tokens": 1024,
-        "top_p": 1,
-        "stop": null,
-        "stream": false
-    },
     "ACCESS_CONFIG":{
         "GROQ":"https://api.groq.com/openai/v1/chat/completions",
         "OpenAI":"https://api.openai.com/v1/chat/completions"
-    },
-    "RAG_CONFIG": {
-        "type": "Vanilla RAG",
-        "chunk_size": 1000,
-        "chunk_overlap": 100,
-        "top_k": 3
     },
     "BENCHMARKS": [
         {
