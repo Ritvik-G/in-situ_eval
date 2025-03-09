@@ -1,9 +1,0 @@
-# Dependencies
-node_modules/
-
-# production
-/build
-
-
-# Misc
-.DS_Store
