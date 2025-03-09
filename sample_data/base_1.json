@@ -1,0 +1,12 @@
+[
+    {
+        "Question": "How many people lived in Lancashire in 1971?",
+        "Context": "By the census of 1971, the population of Lancashire and its county boroughs had reached 5,129,416, making it the most populous geographic county in the UK. The administrative county was also the most populous of its type outside London, with a population of 2,280,359 in 1961. On 1 April 1974, under the Local Government Act 1972, the administrative county was abolished, as were the county boroughs. The urbanised southern part largely became part of two metropolitan counties, Merseyside and Greater Manchester. The new county of Cumbria incorporates the Furness exclave.",
+        "Response": "5,129,416"
+    },
+    {
+        "Question": "What was the name of the confederate general that fought in Bentonville?",
+        "Context": "Confederate troops from all parts of North Carolina served in virtually all the major battles of the Army of Northern Virginia, the Confederacy's most famous army. The largest battle fought in North Carolina was at Bentonville, which was a futile attempt by Confederate General Joseph Johnston to slow Union General William Tecumseh Sherman's advance through the Carolinas in the spring of 1865. In April 1865, after losing the Battle of Morrisville, Johnston surrendered to Sherman at Bennett Place, in what is today Durham. North Carolina's port city of Wilmington was the last Confederate port to fall to the Union, in February 1865, after the Union won the nearby Second Battle of Fort Fisher, its major defense downriver.",
+        "Response": "General Joseph Johnston"
+    }
+]

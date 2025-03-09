@@ -1,0 +1,28 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.so
+.Python
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# Virtual Environment
+.env/
+.venv/
+venv/
+
+# Testing and coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Development files
+.mypy_cache/
+.python-version
+
+
+# Tester files
+app_backup_latest.py
+app_backup.py

@@ -1,0 +1,203 @@
+{
+    "GROQ": [
+      {
+        "provider": "Alibaba Cloud",
+        "models": [
+          {
+            "name": "qwen-2.5-32b",
+            "top-P": 0.9,
+            "maxTokens": 131072,
+            "rateLimit": 100
+          },
+          {
+            "name": "qwen-2.5-coder-32b",
+            "top-P": 0.9,
+            "maxTokens": 131072,
+            "rateLimit": 100
+          }
+        ]
+      },
+      {
+        "provider": "DeepSeek / Alibaba Cloud",
+        "models": [
+          {
+            "name": "deepseek-r1-distill-llama-70b",
+            "top-P": 0.9,
+            "maxTokens": 131072,
+            "rateLimit": 50
+          },
+          {
+            "name": "deepseek-r1-distill-qwen-32b",
+            "top-P": 0.9,
+            "maxTokens": 131072,
+            "rateLimit": 50
+          }
+        ]
+      },
+      {
+        "provider": "DeepSeek / Meta",
+        "models": [
+          {
+            "name": "deepseek-r1-distill-llama-70b",
+            "top-P": 0.9,
+            "maxTokens": 4096,
+            "rateLimit": 50
+          }
+        ]
+      },
+      {
+        "provider": "Google",
+        "models": [
+          {
+            "name": "gemma2-9b-it",
+            "top-P": 0.9,
+            "maxTokens": 8192,
+            "rateLimit": 200
+          }
+        ]
+      },
+      {
+        "provider": "Mistral",
+        "models": [
+          {
+            "name": "mixtral-8x7b-32768",
+            "top-P": 0.9,
+            "maxTokens": 32768,
+            "rateLimit": 30
+          },
+          {
+            "name": "mistral-saba-24b",
+            "top-P": 0.9,
+            "maxTokens": 32768,
+            "rateLimit": 30
+          }
+        ]
+      },
+      {
+        "provider": "Meta",
+        "models": [
+          {
+            "name": "llama3-8b-8192",
+            "top-P": 0.9,
+            "maxTokens": 8192,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama3-70b-8192",
+            "top-P": 0.9,
+            "maxTokens": 8192,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama-guard-3-8b",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama-3.3-70b-versatile",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama-3.3-70b-specdec",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama-3.2-90b-vision-preview",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama-3.2-3b-preview",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama-3.2-11b-vision-preview",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama-3.2-1b-preview",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 100
+          },
+          {
+            "name": "llama-3.1-8b-instant",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 100
+          }
+        ]
+      }
+    ],
+    "OpenAI": [
+      {
+        "provider": "OpenAI",
+        "models": [
+          {
+            "name": "gpt-4",
+            "top-P": 0.9,
+            "maxTokens": 8192,
+            "rateLimit": 200
+          },
+          {
+            "name": "gpt-4-turbo",
+            "top-P": 0.9,
+            "maxTokens": 128000,
+            "rateLimit": 200
+          },
+          {
+            "name": "gpt-4-32k",
+            "top-P": 0.9,
+            "maxTokens": 32768,
+            "rateLimit": 200
+          },
+          {
+            "name": "gpt-3.5-turbo",
+            "top-P": 0.9,
+            "maxTokens": 4096,
+            "rateLimit": 300
+          },
+          {
+            "name": "gpt-3.5-turbo-16k",
+            "top-P": 0.9,
+            "maxTokens": 16384,
+            "rateLimit": 300
+          },
+          {
+            "name": "text-davinci-003",
+            "top-P": 0.9,
+            "maxTokens": 4096,
+            "rateLimit": 100
+          },
+          {
+            "name": "text-curie-001",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 200
+          },
+          {
+            "name": "text-babbage-001",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 200
+          },
+          {
+            "name": "text-ada-001",
+            "top-P": 0.9,
+            "maxTokens": 2048,
+            "rateLimit": 200
+          }
+        ]
+      }
+    ]
+  }

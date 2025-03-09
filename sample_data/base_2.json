@@ -1,0 +1,17 @@
+[
+    {
+        "Question": "What is the hottest planet in our solar system?",
+        "Context": "The planets in our solar system vary in temperature due to their distance from the Sun, atmospheric composition, and other factors.",
+        "Response": "Venus is the hottest planet in our solar system, with surface temperatures reaching up to 462°C (864°F), due to its thick atmosphere and runaway greenhouse effect."
+    },
+    {
+        "Question": "What is the largest organ in the human body?",
+        "Context": "Organs are structures composed of tissues that perform specialized functions. They vary widely in size and purpose.",
+        "Response": "The skin is the largest organ in the human body, covering the entire exterior and serving as a protective barrier against pathogens, temperature changes, and moisture loss."
+    },
+    {
+        "Question": "Who invented the light bulb?",
+        "Context": "The invention of the light bulb was a pivotal moment in history, enabling widespread use of electric lighting.",
+        "Response": "Thomas Edison is credited with inventing the first commercially practical incandescent light bulb in 1879, though he built upon earlier work by other inventors."
+    }
+]

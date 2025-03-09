@@ -1,0 +1,20 @@
+{
+    "LLM_METRICS": {
+        "OpenAI_API": "<Paste your API key here>",
+        "OpenAI_Model": "gpt-4o",
+        "LLMContextPrecisionWithoutReference": false,
+        "LLMContextPrecisionWithReference": false,
+        "LLMContextRecall": true,
+        "ContextEntityRecall": false,
+        "NoiseSensitivity": false,
+        "ResponseRelevancy": true,
+        "Faithfulness": true
+    },
+    "METRICS": {
+        "bleu": true,
+        "rouge": true,
+        "meteor": true,
+        "nubia": true
+    },
+    "DATA_FILE": "data.json"
+}

@@ -1,0 +1,26 @@
+.home-container {
+    display: flex;
+  }
+  
+  .config-stats{
+    display: flex;
+  }
+  .left-container {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .central-container {
+    flex: 3;
+  }
+  
+  .right-container {
+    flex: 1; 
+    order: 3; 
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  @media (min-width: 1001px) {
+  
+  }

@@ -1,0 +1,26 @@
+.navbar{
+    margin-top: -7px;
+    margin-bottom: -7px;
+    margin-left: 5px;
+}
+
+.navbar-image{
+    max-height: 80px;
+}
+
+.navbar-image2{
+    margin-top: 5px;
+    max-height: 60px;
+}
+
+.navbar-image3{
+    margin-left: 20px;
+    margin-top: 2px;
+    max-height: 40px;
+}
+
+.vertical-bar{
+    max-height: 60px;
+    margin-left: -9px;
+    margin-right: -5px;
+}
