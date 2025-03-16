@@ -50,7 +50,24 @@ _Paper preprint coming soon. This repository contains a production-ready proof-o
 ## Prerequisites
 - Python 3.8+ (for backend)
 - ReactJS (for frontend)
-- GROQ/OpenAI API keys (for LLM calls)
+- GROQ/OpenAI API keys (for LLM calls). You can obtain these API keys by following the steps of the respective providers - 
+   - [GROQ](https://console.groq.com/keys)
+   - [OpenAI](https://platform.openai.com/api-keys)
+- (Optional) Before uploading the custom dataset, please ensure it is of `json` file type and is of the following format - 
+   ```bash
+      [
+         {
+            "Question": "This is a sample",
+            "Context": "This is the context related to the question.",
+            "Response": "This is the ground truth answer"
+         },
+         {
+            "Question": "What is the hottest planet in our solar system?",
+            "Context": "The planets in our solar system vary in temperature due to their distance from the Sun, atmospheric composition, and other factors.",
+            "Response": "Venus is the hottest planet in our solar system, with surface temperatures reaching up to 462°C (864°F), due to its thick atmosphere and runaway greenhouse effect."
+         }
+      ]
+   ```
 
 ## Initial Installation
 Clone the git repository - 
