@@ -111,12 +111,18 @@ The structure of backend is as follows -
     ├── Benchmarks/ # Benchmarker that calls data
     │   └── benchmarks.py
     ├── Evaluations/
-    │   |── evaluations.py
+    │   ├── evaluations.py
     │   └── consolidate_metrics.py
     ├── app.py
+    └── requirements.txt
 
 ```
-1. **Install Dependencies**  
+
+1. **Navigate to the Frontend Directory**  
+   First, change the directory to the frontend folder:
+   ```bash
+   cd backend
+2. **Install Dependencies**  
    Use pip to install all the required dependencies:
    ```bash
    pip install -r requirements.txt
