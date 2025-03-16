@@ -1,7 +1,7 @@
 from sklearn.cluster import KMeans
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-from model_config import generate_response
+from RAG.model_config import generate_response
 
 
 # Initialize the Sentence Transformer model
@@ -38,6 +38,33 @@ def summarize_chunks(chunks, labels):
         summaries[label] = ' '.join(cluster_chunks)
     return summaries
 
+def build_tree(summaries):
+    """Build a hierarchical tree from summaries."""
+    tree = {i: {'summary': summary} for i, summary in summaries.items()}
+    return tree
+
+def retrieve(tree, query, top_k=3):
+    """Retrieve relevant information from the tree."""
+    query_embedding = model.encode([query])[0]
+    similarities = []
+    for node, data in tree.items():
+        node_embedding = model.encode([data['summary']])[0]
+        similarity = cosine_similarity([query_embedding], [node_embedding])[0][0]
+        similarities.append((node, similarity))
+    similarities.sort(key=lambda x: x[1], reverse=True)
+    return [tree[node]['summary'] for node, _ in similarities[:top_k]]
+
+# Preprocess the data
+def preprocess_data(dataset):
+    """Preprocess the dataset into a list of tuples (question, context, response)."""
+    data = []
+    for item in dataset:
+        question = item['Question']
+        context = item['Context']
+        response = item['Response']
+        data.append((question, context, response))
+    return data
+
 def run_model(model_config,data):
     """Evaluate RAPTOR model on the given data. """
     # Iterate over each dataset (e.g., "squad", "trivia_qa", "wiki_qa")
@@ -48,12 +75,28 @@ def run_model(model_config,data):
             question = entry['Question']
             context = entry['Context']
 
+            # Generate answer using RAPTOR model
+            chunks = chunk_documents([context])
+            embeddings = generate_embeddings(chunks)
+            labels = cluster_chunks(embeddings)
+            summaries = summarize_chunks(chunks, labels)
+            tree = build_tree(summaries)
+            
+
+            # Take the first retrieved answer as the tree retrieved response
+            retrieved_info = retrieve(tree, question)
+            
+            #retrieved = retrieved_info[0] if retrieved_info else ""
+
             # Generate LLM response and name it as predicted 
             ''' [This can be called in as a prompting strategy later on] '''
-            prompt = f"User Question: {question}\n\nRelevant Excerpt(s):\n\n{context}"
+            prompt = f"User Question: {question}\n\nRelevant Excerpt(s):\n\n{retrieved_info}"
             predicted = generate_response(model_config,prompt)
 
             # Add prediction to the entry (placed after "Response")
             entry['Predicted'] = predicted  # Insert prediction into the JSON
 
+
     return data  # Return the modified JSON with predictions
+
+

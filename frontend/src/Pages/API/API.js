@@ -311,6 +311,20 @@ const Playground = () => {
     const [ModelShow, setModelShow] = useState(false);
     const [DataShow, setDataShow] = useState(false);
     const [RAGShow, setRAGShow] = useState(false);
+
+
+    const sampleDataset = [
+      {
+          "Question": "This is a sample",
+          "Context": "This is the context related to the question.",
+          "Response": "This is the ground truth answer"
+      },
+      {
+          "Question": "What is the hottest planet in our solar system?",
+          "Context": "The planets in our solar system vary in temperature due to their distance from the Sun, atmospheric composition, and other factors.",
+          "Response": "Venus is the hottest planet in our solar system, with surface temperatures reaching up to 462°C (864°F), due to its thick atmosphere and runaway greenhouse effect."
+      }
+  ]
   
     const sidebarContent = (
       <>
@@ -331,8 +345,8 @@ const Playground = () => {
                     <li>Choose the model you want (Eg. llama3-8b-8192)</li>
                     <li>Enter your API key for the access type selected. Here's how you can create an API key for each of the access types - 
                       <ul>
-                        <li>For GROQ, click <a href='https://console.groq.com/keys' rel="noopener noreferrer">here</a></li>
-                        <li>For OpenAI, click <a href='https://platform.openai.com/api-keys' rel="noopener noreferrer">here</a></li>
+                        <li>For GROQ, click <a href='https://console.groq.com/keys' target="_blank" rel="noopener noreferrer">here</a></li>
+                        <li>For OpenAI, click <a href='https://platform.openai.com/api-keys' target="_blank" rel="noopener noreferrer">here</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -377,13 +391,13 @@ const Playground = () => {
                   </Modal.Footer>
                 </Modal>
                 {/* Token Controls */}
-                <Form.Group>
+                {/* <Form.Group>
                     <InputGroup className="mb-3 d-flex justify-content-between align-items-center">
                     <Form.Label>Max Completion Tokens&emsp;</Form.Label>
                     <Form.Control required type="number" value={tokens} onChange={handleTokenInputChange} min={tokens_min} max={tokens_max} size='sm' />
                     <Form.Range min={tokens_min} max={tokens_max} step={1} value={tokens} onChange={handleTokenSliderChange}/>
                     </InputGroup>
-                </Form.Group>
+                </Form.Group> */}
                 <Form.Group>
                     <InputGroup className="mb-3 d-flex justify-content-between align-items-center">
                     <Form.Label>Temperature &emsp;</Form.Label>
@@ -431,12 +445,12 @@ const Playground = () => {
               </Modal.Header>
               <Modal.Body>
                 {/* Add your configuration information here */}
-                <p>This section allows you to upload your own dataset to evaluate the set configurations.</p>
-                <ul>
-                  <li>Use roles to group permissions</li>
-                  <li>Assign users to multiple roles</li>
-                  <li>Configure time-based access rules</li>
-                </ul>
+                <p>This section allows you to upload your own dataset to evaluate the set configurations. <br/> Please ensure that the dataset is of the following format - </p>
+                <pre>
+                  <code>
+                    {JSON.stringify(sampleDataset, null, 2)}
+                  </code>
+                </pre>
               </Modal.Body>
               <Modal.Footer>
                 <button className="btn btn-secondary" onClick={() => setDataShow(false)}> Close </button>
@@ -477,7 +491,7 @@ const Playground = () => {
                 {/* Add your configuration information here */}
                 <p>This section allows you to toggle between different types of RAG techniques and adjust some of their common parameters</p>
                 <ul>
-                  <li>Choose between <a href='https://console.groq.com/keys' rel="noopener noreferrer">Vanilla RAG</a> [default], <a href='https://console.groq.com/keys' rel="noopener noreferrer">RAPTOR</a> or <a href='https://console.groq.com/keys' rel="noopener noreferrer">Graph RAG</a> for evaluations</li>
+                  <li>Choose between <a href='https://arxiv.org/pdf/2005.11401' target="_blank" rel="noopener noreferrer">Vanilla RAG</a> [default], <a href='https://arxiv.org/pdf/2401.18059' target="_blank" rel="noopener noreferrer">RAPTOR</a> or <a href='https://arxiv.org/pdf/2404.16130' target="_blank" rel="noopener noreferrer">Graph RAG</a> for evaluations</li>
                   <li>Chunk Size</li>
                   <li>Chunk Overlap</li>
                   <li>Top K</li>
@@ -582,7 +596,7 @@ const Playground = () => {
               <div className="d-flex justify-content-between align-items-center">
                 <Button variant="link" onClick={downloadResults}>Download Results</Button>
                 <Button variant="link" onClick={downloadReport}>Download Comprehensive Report</Button>
-                <Button variant="link">View code</Button>
+                <Button variant="link" target="_blank" href='https://github.com/Ritvik-G/in-situ_eval' rel="noopener noreferrer">View code</Button>
               </div>
             </Card.Header>
           </Card>

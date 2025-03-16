@@ -24,7 +24,7 @@ export default function Navbar_Function(){
         <>
                 <Navbar key='md' variant="light">
                 <Container fluid className='navbar'>
-                    <Navbar.Brand href="/#">
+                    <Navbar.Brand href="/">
                         <p>AIISC - DevKit</p>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
@@ -41,13 +41,14 @@ export default function Navbar_Function(){
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 ">
                         <Nav.Link  onClick={()=>navigate('/')} >Home</Nav.Link>
+                        <Nav.Link  onClick={()=>navigate('/api')} >API</Nav.Link>
 
-                        <Nav.Link hidden={!localStorageItem} onClick={()=>navigate('/api')} >Query</Nav.Link>
+                        {/* <Nav.Link hidden={!localStorageItem} onClick={()=>navigate('/api')} >Query</Nav.Link>
                         <Nav.Link  hidden={!localStorageItem} onClick={()=>navigate('/updateAPI')} >Update API Key</Nav.Link>
-                        <Nav.Link hidden={!localStorageItem} onClick={logout} >Logout</Nav.Link>
+                        <Nav.Link hidden={!localStorageItem} onClick={logout} >Logout</Nav.Link> */}
 
-                        <Nav.Link hidden={localStorageItem} onClick={()=>navigate('/login')}>Login</Nav.Link>
-                        <Nav.Link hidden={localStorageItem} onClick={()=>navigate('/signup')}>Signup</Nav.Link>
+                        {/* <Nav.Link hidden={localStorageItem} onClick={()=>navigate('/login')}>Login</Nav.Link>
+                        <Nav.Link hidden={localStorageItem} onClick={()=>navigate('/signup')}>Signup</Nav.Link> */}
                         &emsp; &emsp; &emsp;
                         </Nav>
                     </Offcanvas.Body>

@@ -2,8 +2,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import networkx as nx
-from model_config import generate_response
-
+from RAG.model_config import generate_response
 
 # Initialize the Sentence Transformer model
 model = SentenceTransformer('paraphrase-MiniLM-L6-v2')

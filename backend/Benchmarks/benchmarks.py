@@ -112,7 +112,7 @@ def load_datasets_from_json(datasets: list, num_samples: int):
 
 def main():
     """Main function to run the script independently."""
-    with open('config.json','r') as file:
+    with open('../config.json','r') as file:
         config = json.load(file)
         
     json_file = config['BENCHMARKS'] # Check formatting of this in config.json

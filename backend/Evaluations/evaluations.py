@@ -73,3 +73,14 @@ def evals(data):
     # Calculate metrics
     enhanced_dataset = calculate_metrics(data)
     return enhanced_dataset
+
+def main():
+    """Main function to run the script independently."""
+    # Calculate metrics
+    with open('data.json','r') as file:
+        data = json.load(file)
+    enhanced_dataset = calculate_metrics(data)
+    return enhanced_dataset
+
+if __name__ == "__main__":
+    main()

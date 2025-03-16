@@ -14,16 +14,16 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, decode_token
 
 # Benchmark components
-from benchmarks import load_datasets_from_json
+from Benchmarks.benchmarks import load_datasets_from_json
 
 # RAG implementations
-from graphrag import run_model as graphrag
-from raptor import run_model as raptor
-from rag import run_model as rag
+from RAG.graphrag import run_model as graphrag
+from RAG.raptor import run_model as raptor
+from RAG.rag import run_model as rag
 
 # Evaluation system
-from evaluations import evals
-from consolidate_metrics import consolidation
+from Evaluations.evaluations import evals
+from Evaluations.consolidate_metrics import consolidation
 
 # Initialize Flask application
 app = Flask(__name__)
