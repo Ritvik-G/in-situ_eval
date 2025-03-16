@@ -118,8 +118,8 @@ The structure of backend is as follows -
 
 ```
 
-1. **Navigate to the Frontend Directory**  
-   First, change the directory to the frontend folder:
+1. **Navigate to the Backend Directory**  
+   First, change the directory to the backend folder:
    ```bash
    cd backend
 2. **Install Dependencies**  
