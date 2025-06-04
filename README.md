@@ -107,8 +107,8 @@ The structure of backend is as follows -
     │   ├── rag.py
     │   ├── raptor.py
     │   ├── graphrag.py
-    │   └── model_config.py # LLM caller function 
-    ├── Benchmarks/ # Benchmarker that calls data
+    │   └── model_config.py  
+    ├── Benchmarks/ 
     │   └── benchmarks.py
     ├── Evaluations/
     │   ├── evaluations.py
@@ -117,6 +117,9 @@ The structure of backend is as follows -
     └── requirements.txt
 
 ```
+
+# LLM caller function
+# Benchmarker that calls data
 
 1. **Navigate to the Backend Directory**  
    First, change the directory to the backend folder:
