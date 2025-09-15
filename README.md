@@ -12,8 +12,8 @@ A Streamlit-powered pipeline to run **real-time evaluations** on datasets you up
 - Upload JSON datasets and run the pipeline end‑to‑end from a web UI
 - Subsample/curate datasets before inference
 - Retrieval techniques: **RAG**, **RAPTOR**, **GraphRAG**
-- Pluggable LLM call via a simple config (works with OpenAI-compatible endpoints)
-- Metrics for exact match, overlap, and ROUGE-style similarities
+- Pluggable LLM call via a simple config (works with GROQ and OpenAI compatible endpoints)
+- Metrics for exact match, overlap, and ROUGE-style similarities (Generic and RAG centric)
 - Clear artifacts saved for each run (sampled data, predictions, enriched + metrics, summaries)
 
 ---
@@ -27,7 +27,7 @@ Code/
   modules/
     subsampling.py    # Sampling, dedupe, date windows, etc.
     retrieval.py      # RAG / RAPTOR / GraphRAG + LLM request helpers
-    evals.py          # Non‑LLM metrics (EM, F1, Jaccard, ROUGE-ish)
+    evals.py          # Quantitative metrics of two kinds - Generic and RAG centric (EM, F1, Jaccard, ROUGE-ish)
 artifacts/            # Created on first run; holds outputs
 ```
 
@@ -70,13 +70,13 @@ cd Code
 streamlit run interface.py
 ```
 
-This launches a local app at a URL like `http://localhost:8501`. Use the sidebar to choose **mode**, **retrieval technique**, and parameters; upload your dataset and (optionally) provide model/access configs (see below).
+This launches a local app at a URL like `http://localhost:8501`. Use the sidebar to choose **mode**, **Subsampling method**, **retrieval technique (if in retrieval mode)**, **Evaluation suite**, and parameters; upload your dataset and (optionally) provide model/access configs (see below).
 
 ---
 
 ## Dataset Format
 
-Input JSON should be either a list of records or a mapping of dataset name → list of records. Typical QnA-style record keys:
+Input JSON should be either a list of records or a mapping of dataset name → list of records. Typical QnA-style record keys (for Retrieval Mode):
 
 ```json
 {
@@ -90,17 +90,37 @@ Input JSON should be either a list of records or a mapping of dataset name → l
 }
 ```
 
-The pipeline normalizes keys (case-insensitive) and trims overly large `Context` values for responsiveness.
+Typical QnA-style record keys (for Dataset Mode):
+
+```json
+{
+  "my_dataset": [
+    {
+      "Question": "…",
+      "Context": "…",
+      "Response": "…",
+      "Predicted": "…"
+    }
+  ]
+}
+```
+
+The pipeline normalizes keys (case-insensitive) and maps to the JSON definitions as above.
 
 ---
 
 ## Configuration
 
-The pipeline reads a single YAML/JSON config (default `pipeline.config.yaml`). Minimal example:
+The pipeline (main.py) reads a single YAML/JSON config (default `pipeline.config.yaml`). 
+
+**NOTE: For executions through Interface.py, these configs generation is automatically handled through the components on the interface and need not be generated.**
+
+
+Minimal example:
 
 ```yaml
 # pipeline.config.yaml
-mode: api                # "api" to generate predictions; "dataset" to skip API calls
+mode: retrieval                # "retrieval" to generate predictions; "dataset" to directly run evaluations
 input_dataset: ./data/sample.json
 artifacts_dir: ./artifacts
 
@@ -168,7 +188,7 @@ sampling_audit_out: sampling_audit.json
 
 ## Running via CLI (optional)
 
-Instead of the UI, you can run the whole pipeline from the command line:
+Instead of the UI, you can run the whole pipeline from the command line (refer to config generation from above):
 
 ```bash
 python Code/main.py -c pipeline.config.yaml
@@ -203,8 +223,3 @@ Logs and outputs are written under `artifacts_dir`:
 
 Feel free to open issues or PRs. For local dev, add type checking, linting, and tests as desired (e.g., `ruff`, `pytest`, `mypy`).
 
----
-
-## License
-
-Add your preferred license here (e.g., MIT).
