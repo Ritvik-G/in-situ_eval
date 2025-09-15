@@ -1,0 +1,16 @@
+# Core UI / App
+streamlit
+pandas
+
+# Retrieval & ML
+numpy
+scikit-learn
+sentence-transformers
+transformers
+torch
+networkx
+
+# Utilities
+requests
+PyYAML
+evaluate

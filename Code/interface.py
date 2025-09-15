@@ -555,6 +555,10 @@ mock_armed = (not st.session_state.get("__mock_toggle__", True))  # OFF means 'a
 # Main panel: preview, run, and results
 # ---------------------------------------------------------------------
 
+# ---------------------------------------------------------------------
+# Main panel: preview, run, and results
+# ---------------------------------------------------------------------
+
 st.markdown('<h3 style="margin: 0.10rem 0 0.25rem;">Dataset Preview</h3>', unsafe_allow_html=True)
 dataset_obj = _read_multi_jsons(ds_upl_list) if ds_upl_list else None
 
@@ -571,11 +575,17 @@ if dataset_obj is not None:
                 or rec.get("passage") or rec.get("document") or rec.get("doc") or ""
             )
             resp = rec.get("Response") or rec.get("response") or rec.get("answer") or rec.get("gold") or ""
+            # NEW: include Predicted with a few common aliases; default to empty string
+            pred = (
+                rec.get("Predicted") or rec.get("predicted") or rec.get("prediction")
+                or rec.get("model_answer") or rec.get("pred") or ""
+            )
             rows.append({
                 "No": len(rows) + 1,
                 "Question": q,
                 "Context": ctx,
                 "Response": resp,
+                "Predicted": pred,
             })
             if len(rows) >= 25:
                 break
@@ -583,14 +593,15 @@ if dataset_obj is not None:
             break
 
     if rows:
-        df_preview = pd.DataFrame(rows, columns=["No", "Question", "Context", "Response"])
+        df_preview = pd.DataFrame(rows, columns=["No", "Question", "Context", "Response", "Predicted"])
         # Show ~5 rows, scroll for the rest (up to 25)
-        VISIBLE_ROWS = 7
+        VISIBLE_ROWS = 5
         ROW_H = 28   # approx per-row height in st.dataframe
-        BASE_H = 48  # header/padding allowance
+        BASE_H = 30  # header/padding allowance
         st.dataframe(df_preview, use_container_width=True, height=BASE_H + ROW_H * VISIBLE_ROWS)
     else:
-        st.info("No rows found with fields: Question / Context / Response.")
+        st.info("No rows found with fields: Question / Context / Response / Predicted.")
+
 
 
 
