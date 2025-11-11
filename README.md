@@ -5,7 +5,7 @@ A Streamlit-powered pipeline to run **real-time evaluations** on datasets you up
 > **Entry point:** `interface.py` (run with Streamlit).  
 > **Python:** 3.10+ (uses `|` type unions).
 
-Code Link (GitHub): https://github.com/Ritvik-G/in-situ_eval
+Code Link (GitHub): https://github.com/Ritvik-G/insitu-eval
 
 ---
 
